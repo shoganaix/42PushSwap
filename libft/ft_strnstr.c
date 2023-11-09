@@ -3,38 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 20:59:20 by shovsepy          #+#    #+#             */
-/*   Updated: 2021/06/30 17:28:56 by shovsepy         ###   ########.fr       */
+/*   Created: 2023/03/13 18:21:43 by msoriano          #+#    #+#             */
+/*   Updated: 2023/04/06 12:32:30 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str,
-	const char *sub_str, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	i;
-	size_t	j;
+	unsigned long long	counter1;
+	unsigned long long	counter2;
 
-	i = 0;
-	j = 0;
-	if (!sub_str[j])
-		return ((char *)(str));
-	while (str[i] && sub_str[j] && len)
+	counter1 = 0;
+	if (needle == '\0' )
+		return ((char *) haystack);
+	while (haystack[counter1] && counter1 < len)
 	{
-		if (str[i] == sub_str[j])
-			j++;
-		else if (j)
+		counter2 = 0;
+		while ((haystack[counter1 + counter2] != '\0')
+			&& ((haystack[counter1 + counter2]) == needle[counter2])
+			&& (counter1 + counter2) < len)
 		{
-			j = 0;
-			continue ;
+			if (needle[counter2 + 1] == '\0')
+				return ((char *) haystack + counter1);
+			counter2++;
 		}
-		i++;
-		len--;
+		counter1++;
 	}
-	if (!sub_str[j])
-		return ((char *)(str + i - j));
-	return (0);
+	return (NULL);
 }
+/*
+int    main(void)
+{
+    printf("%s\n", ft_strnstr("Holasss", 5, 5));
+    printf("%s", strnstr("Holasss", 5, 5));
+    return (0);
+}*/

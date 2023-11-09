@@ -3,32 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 20:48:27 by shovsepy          #+#    #+#             */
-/*   Updated: 2021/06/30 17:23:41 by shovsepy         ###   ########.fr       */
+/*   Created: 2023/03/13 11:42:21 by msoriano          #+#    #+#             */
+/*   Updated: 2023/04/04 12:52:07 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	char	*letter;
-	int		i;
+	char	*chr;
+	int		counter;
 
-	letter = 0;
-	i = 0;
-	while (str[i])
+	counter = 0;
+	c = (unsigned char) c;
+	chr = (char *) s;
+	while (chr[counter] != c)
 	{
-		if (str[i] == c)
-		{
-			letter = (char *)(str + i);
-			return (letter);
-		}
-		i++;
+		if (chr[counter] == '\0')
+			return (NULL);
+		counter++;
 	}
-	if (str[i] == c)
-		return ((char *)(str + i));
-	return (NULL);
+	return (chr + counter);
 }
+/*
+int	main(void)
+{
+	printf("%s\n", ft_strchr("Hola que tal", ' '));
+	printf("%s", strchr("Hola que tal", ' '));
+	return (0);
+}
+*/

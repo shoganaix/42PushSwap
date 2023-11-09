@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 20:52:37 by shovsepy          #+#    #+#             */
-/*   Updated: 2021/06/30 17:25:17 by shovsepy         ###   ########.fr       */
+/*   Created: 2023/03/07 13:09:39 by msoriano          #+#    #+#             */
+/*   Updated: 2023/03/31 17:33:42 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,28 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	count;
-	size_t	i;
+	unsigned long long	n;
 
-	count = 0;
-	i = 0;
-	while (*(src + count))
-		count++;
-	if (dstsize != 0)
+	n = 0;
+	if (dstsize > 0)
 	{
-		while ((*(src + i)) && i < (dstsize - 1))
+		while (src[n] != '\0' && n < (dstsize - 1))
 		{
-			*(dst + i) = *(src + i);
-			i++;
+			dst[n] = src[n];
+			n ++;
 		}
-		*(dst + i) = 0;
+		dst[n] = 0;
 	}
-	return (count);
+	while (src[n])
+		n++;
+	return (n);
 }
+
+/*int	main(void)
+{
+	char	str [] = "Hello";
+	char	dst [12];
+	printf("%lu", strlcpy(dst, str1, 12));
+	//printf("%lu", ft_strlcpy(dst, str1, 9));
+	return (0);
+}*/

@@ -3,33 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 21:00:05 by shovsepy          #+#    #+#             */
-/*   Updated: 2021/06/30 17:29:22 by shovsepy         ###   ########.fr       */
+/*   Created: 2023/03/13 11:29:34 by msoriano          #+#    #+#             */
+/*   Updated: 2023/03/31 17:33:54 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	int		len;
+	char	*chr;
 
-	i = 0;
-	while (str[i])
+	c = (unsigned char) c;
+	len = ft_strlen(s);
+	chr = (char *) s;
+	while (len >= 0)
 	{
-		i++;
+		if (chr[len] == c)
+			return (chr + len);
+		len--;
 	}
-	while (i >= 0)
-	{
-		if (str[i] == c)
-		{
-			return ((char *)(str + i));
-		}
-		if (i == 0)
-			break ;
-		i--;
-	}
-	return (0);
+	return (NULL);
 }
+/*
+int	main(void)
+{
+	printf("%s\n", ft_strrchr("Holaaas", 'a'));
+	printf("%s", strrchr("Holaaas", 'a'));
+	return (0);
+}*/

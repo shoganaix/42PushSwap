@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 20:49:06 by shovsepy          #+#    #+#             */
-/*   Updated: 2021/06/30 17:24:30 by shovsepy         ###   ########.fr       */
+/*   Created: 2023/03/15 16:35:47 by msoriano          #+#    #+#             */
+/*   Updated: 2023/03/31 17:33:33 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,28 @@
 
 char	*ft_strdup(const char *s1)
 {
-	char	*start;
-	int		i;
-	int		len;
+	unsigned long long	counter;
+	char				*p;
+	char				*ss1;
 
-	len = ft_strlen(s1);
-	start = malloc(len + 1);
-	if (!start)
-		return (0);
-	i = 0;
-	while (s1[i] != '\0')
+	ss1 = (char *) s1;
+	counter = 0;
+	p = (char *)malloc(ft_strlen(s1) + (sizeof(char) * 1));
+	if (p == '\0')
+		return (NULL);
+	while (ss1[counter] != '\0')
 	{
-		start[i] = s1[i];
-		i++;
+		p[counter] = ss1[counter];
+		counter ++;
 	}
-	start[i] = 0;
-	return (start);
+	p[counter] = '\0';
+	return (p);
 }
+/*
+int main(void)
+{
+	const char *s1 = "Hello, world!";
+	printf("%s\n", strdup(s1));
+    printf("%s\n", ft_strdup(s1));
+    return (0);
+}*/

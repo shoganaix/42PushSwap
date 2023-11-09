@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/30 16:06:54 by sshiling          #+#    #+#             */
-/*   Updated: 2017/10/30 16:15:42 by sshiling         ###   ########.fr       */
+/*   Created: 2023/03/29 18:56:19 by msoriano          #+#    #+#             */
+/*   Updated: 2023/03/31 17:33:35 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	while (*s1 && *s1 == *s2)
+	unsigned int	counter;
+
+	counter = 0;
+	while (s[counter])
 	{
-		s1++;
-		s2++;
+		(*f)(counter, &s[counter]);
+		counter ++;
 	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
+/*int main()
+{
+    char *str = "lorem ipsum";
+    ft_striteri(str, &f);
+    return(0);
+}*/

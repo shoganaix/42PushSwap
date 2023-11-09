@@ -3,52 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 20:24:39 by shovsepy          #+#    #+#             */
-/*   Updated: 2021/06/30 17:13:00 by shovsepy         ###   ########.fr       */
+/*   Created: 2023/03/29 19:57:25 by msoriano          #+#    #+#             */
+/*   Updated: 2023/04/04 13:07:17 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_dc(int n)
+static int	ft_len(int n)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	if (n < 0 || n == 0)
-		i++;
+	len = 0;
+	if (n <= 0)
+		len ++;
 	while (n)
 	{
-		n /= 10;
-		i++;
+		n = n / 10;
+		len ++;
 	}
-	return (i + 1);
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	int				n1;
-	unsigned int	n2;
-	int				i;
-	char			*d;
+	char	*result;
+	long	nbr;
+	int		len;
 
-	i = ft_dc(n);
-	n1 = 0;
-	n2 = n;
-	d = malloc(i);
-	d[--i] = '\0';
-	if (n < 0)
+	len = ft_len(n);
+	nbr = (long int) n;
+	result = malloc(len + 1);
+	if (!result)
+		return (NULL);
+	result[len--] = '\0';
+	if (nbr == 0)
+		result[len] = '0';
+	if (nbr < 0)
 	{
-		n2 = n * -1;
-		d[n1] = '-';
-		n1++;
+		result [0] = '-';
+		nbr *= (-1);
 	}
-	while (n1 < i--)
+	while (nbr != 0)
 	{
-		d[i] = n2 % 10 + '0';
-		n2 /= 10;
+		result[len] = (nbr % 10) + '0';
+		nbr /= 10;
+		len --;
 	}
-	return (d);
+	return (result);
 }
+/*int	main(void)
+{
+	int n = -123456;
+	char *str = ft_itoa(n);
+	printf("%d en una cadena: %s\n", n, str);
+	return (0);
+}*/

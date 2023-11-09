@@ -3,29 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 20:39:00 by shovsepy          #+#    #+#             */
-/*   Updated: 2021/02/02 18:27:59 by shovsepy         ###   ########.fr       */
+/*   Created: 2023/03/13 16:40:30 by msoriano          #+#    #+#             */
+/*   Updated: 2023/04/04 13:07:33 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *str, int c, size_t len)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char			*str_val;
-	unsigned int	i;
+	unsigned char		*chr;
+	unsigned long long	counter;
 
-	str_val = (char *)str;
-	i = 0;
-	while (i < len)
+	counter = 0;
+	c = (unsigned char) c;
+	chr = (unsigned char *) s;
+	while (counter < n)
 	{
-		if (str_val[i] == c)
-		{
-			return ((void *)(str + i));
-		}
-		i++;
+		if (chr[counter] == c)
+			return (&chr[counter]);
+		counter ++;
 	}
 	return (NULL);
 }
+/*
+int	main(void)
+{
+	printf("%s\n", ft_memchr("Hooola", 'o', 2));
+	printf("%s", memchr("Hiooola", 'o', 2));
+	return (0);
+}*/

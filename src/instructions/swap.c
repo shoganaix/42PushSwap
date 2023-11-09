@@ -1,8 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/09 21:08:01 by msoriano          #+#    #+#             */
+/*   Updated: 2023/11/09 22:17:45 by msoriano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "push_swap.h"
-
+#include "../../push_swap.h"
 // sa, sb and ss | Intercambia los dos primeros elementos de un stack
-
 int	swap(t_list **stack)
 {
 	t_list	*head;
@@ -42,7 +51,7 @@ int	sb(t_list **stack_b)
 }
 
 int	ss(t_list **stack_a, t_list **stack_b)
-{	
+{
 	if ((ft_lstsize(*stack_a) < 2) || (ft_lstsize(*stack_b) < 2))
 		return (-1);
 	swap(stack_a);

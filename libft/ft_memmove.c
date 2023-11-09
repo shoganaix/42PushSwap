@@ -3,40 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 20:41:47 by shovsepy          #+#    #+#             */
-/*   Updated: 2021/02/02 18:45:47 by shovsepy         ###   ########.fr       */
+/*   Created: 2023/03/10 10:34:32 by msoriano          #+#    #+#             */
+/*   Updated: 2023/03/31 17:33:22 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t			i;
-	char			*dest_val;
-	char			*src_val;
+	unsigned char	*tempdst;
+	unsigned char	*tempsrc;
 
-	dest_val = (char *)dest;
-	src_val = (char *)src;
-	if (len == 0)
-		return (dest);
-	if (src < dest)
-	{
-		while (len-- > 0)
-		{
-			dest_val[len] = src_val[len];
-		}
-	}
-	else
-	{
-		i = 0;
-		while (i < len)
-		{
-			dest_val[i] = src_val[i];
-			i++;
-		}
-	}
-	return (dest);
+	tempdst = (unsigned char *) dst;
+	tempsrc = (unsigned char *) src;
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	if (dst < src)
+		return (ft_memcpy(dst, src, len));
+	if (dst > src)
+		while (len--)
+			tempdst[len] = tempsrc[len];
+	return (dst);
 }
+
+/*int	main(void)
+{
+	char	str[] = "hello";
+	char	str1[] = "world";
+	memmove(str, str1, 2);
+	ft_memmove(str, str1, 2);
+	printf("%s", str);
+	return (0);
+}*/

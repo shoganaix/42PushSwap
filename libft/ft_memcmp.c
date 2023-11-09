@@ -3,31 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 20:40:03 by shovsepy          #+#    #+#             */
-/*   Updated: 2021/02/02 18:38:16 by shovsepy         ###   ########.fr       */
+/*   Created: 2023/03/13 17:23:49 by msoriano          #+#    #+#             */
+/*   Updated: 2023/03/31 17:33:21 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *str1, const void *str2, size_t len)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char	*str1_val;
-	const unsigned char	*str2_val;
-	size_t				i;
+	unsigned long long	counter;
 
-	str1_val = (const unsigned char *)str1;
-	str2_val = (const unsigned char *)str2;
-	i = 0;
-	while (i < len)
+	counter = 0;
+	while (counter < n)
 	{
-		if (str1_val[i] != str2_val[i])
-		{
-			return (str1_val[i] - str2_val[i]);
-		}
-		i++;
+		if (((unsigned char *)s1)[counter] != ((unsigned char *)s2)[counter])
+			return (((unsigned char *)s1)[counter] -
+				((unsigned char *)s2)[counter]);
+		counter++;
 	}
 	return (0);
 }
+/*
+int	main(void)
+{
+	char str1[] = "Hello";
+    char str2[] = "Hello, world!";
+    printf("%d", ft_memcmp(str1, str2, 7));
+	printf("%d", memcmp(str1, str2, 7));
+	return (0);
+}*/

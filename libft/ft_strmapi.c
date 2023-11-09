@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 20:56:30 by shovsepy          #+#    #+#             */
-/*   Updated: 2021/06/30 17:26:35 by shovsepy         ###   ########.fr       */
+/*   Created: 2023/03/29 19:11:48 by msoriano          #+#    #+#             */
+/*   Updated: 2023/03/31 17:33:47 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,24 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*st;
-	int		i;
-	int		size;
+	char			*str;
+	unsigned int	counter;
 
-	i = 0;
-	size = ft_strlen(s);
-	if (s == NULL)
+	counter = 0;
+	str = (char *) malloc (ft_strlen(s) + 1);
+	if (!str)
 		return (NULL);
-	st = malloc(size + 1);
-	if (!st)
-		return (0);
-	ft_strlcpy(st, s, size + 1);
-	while (i < size)
+	while (s[counter])
 	{
-		st[i] = (*f)(i, st[i]);
-		i++;
+		str[counter] = (*f)(counter, s[counter]);
+		counter ++;
 	}
-	return (st);
+	str[counter] = '\0';
+	return (str);
 }
+/*int main()
+{
+    char *str = "lorem ipsum";
+    ft_strmapi(str, &f);
+    return(0);
+}*/

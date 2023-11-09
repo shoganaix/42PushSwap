@@ -3,26 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 20:13:17 by shovsepy          #+#    #+#             */
-/*   Updated: 2021/02/02 17:38:30 by shovsepy         ###   ########.fr       */
+/*   Created: 2023/03/15 15:51:31 by msoriano          #+#    #+#             */
+/*   Updated: 2023/03/31 17:32:55 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_bzero(void *s, size_t len)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t			i;
-	unsigned char	*str2;
+	char				*str;
+	unsigned long long	counter;
 
-	i = 0;
-	str2 = (unsigned char *)s;
-	while (i < len)
+	counter = 0;
+	str = (char *)s;
+	while (counter < n)
 	{
-		str2[i] = 0;
-		i++;
+		str[counter] = 0;
+		counter++;
 	}
-	return (str2 = s);
 }
+/*
+int    main(void)
+{
+    printf("%s\n", ft_calloc(1, 5));
+    printf("%s", calloc(1, 5));
+    return (0);
+}*/

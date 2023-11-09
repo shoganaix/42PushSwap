@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/09 20:09:20 by msoriano          #+#    #+#             */
+/*   Updated: 2023/11/09 22:17:19 by msoriano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
-// pa and pb | Pilla el primer elemento de un stack y lo pone al principio del siguiente
+// pa and pb | Pilla el primer elemento de un stack
+//y lo pone al principio del siguiente
 
-int	push(t_list** stack_to, t_list** stack_from)
+int	push(t_list **stack_to, t_list **stack_from)
 {
-	t_list* tmp;
-	t_list* head_to;
-	t_list* head_from;
+	t_list	*tmp;
+	t_list	*head_to;
+	t_list	*head_from;
 
 	if (ft_lstsize(*stack_from) == 0)
 		return (-1);
@@ -30,7 +42,7 @@ int	push(t_list** stack_to, t_list** stack_from)
 	return (0);
 }
 
-int	pa(t_list** stack_a, t_list** stack_b)
+int	pa(t_list **stack_a, t_list **stack_b)
 {
 	if (push(stack_a, stack_b) == -1)
 		return (-1);
@@ -38,7 +50,7 @@ int	pa(t_list** stack_a, t_list** stack_b)
 	return (0);
 }
 
-int	pb(t_list** stack_a, t_list** stack_b)
+int	pb(t_list **stack_a, t_list **stack_b)
 {
 	if (push(stack_b, stack_a) == -1)
 		return (-1);

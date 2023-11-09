@@ -3,32 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 20:41:08 by shovsepy          #+#    #+#             */
-/*   Updated: 2021/02/02 20:04:56 by shovsepy         ###   ########.fr       */
+/*   Created: 2023/03/09 11:35:39 by msoriano          #+#    #+#             */
+/*   Updated: 2023/03/31 17:33:19 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char		*dest_val;
-	unsigned char		*src_val;
-	size_t				i;
+	unsigned long long	count;
+	char				*p_dst;
+	char				*p_src;
 
-	i = 0;
-	if (dest == src || n == 0)
-		return (dest);
-	if (!dest && !src)
-		return (0);
-	dest_val = (unsigned char *)dest;
-	src_val = (unsigned char *)src;
-	while (i < n)
+	p_dst = (char *) dst;
+	p_src = (char *) src;
+	count = 0;
+	if (!dst && !src)
+		return (NULL);
+	while (n > count)
 	{
-		dest_val[i] = src_val[i];
-		i++;
+		p_dst[count] = p_src[count];
+		count ++;
 	}
-	return (dest);
+	return (dst);
 }
+
+/*int	main(void)
+{
+	char	str[] = "hello";
+	char	str1[] = "world";
+	//memcpy(str1, str, 3);
+	ft_memcpy(str1, str, 5);
+	printf("%s", str1);
+	return (0);
+}*/

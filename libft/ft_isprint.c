@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 20:21:39 by shovsepy          #+#    #+#             */
-/*   Updated: 2021/02/02 18:14:51 by shovsepy         ###   ########.fr       */
+/*   Created: 2023/03/07 12:31:47 by msoriano          #+#    #+#             */
+/*   Updated: 2023/03/31 17:33:04 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	return (c >= 32 && c <= 126);
+	if (c >= 32 && c < 127)
+		return (1);
+	else
+		return (0);
 }
+
+/*int	main(void)
+{
+	printf("%d", ft_isprint('a'));
+	return(0);
+}*/

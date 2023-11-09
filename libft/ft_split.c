@@ -3,87 +3,76 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 20:47:12 by shovsepy          #+#    #+#             */
-/*   Updated: 2021/01/28 20:47:15 by shovsepy         ###   ########.fr       */
+/*   Created: 2023/03/31 18:00:51 by msoriano          #+#    #+#             */
+/*   Updated: 2023/04/04 13:04:08 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	word_count(char const *s, char c)
+static int	ft_wordnb(char const *s, char c)
 {
-	int	i;
-	int	count;
+	int	counter;
+	int	nb;
 
-	i = 0;
-	count = 0;
-	while (s[i])
+	counter = 0;
+	nb = 0;
+	while (s[counter])
 	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
-			count++;
-		i++;
+		if (s[counter] != c && (s[counter + 1] == c || s[counter + 1] == '\0'))
+			nb++;
+		counter++;
 	}
-	return (count);
+	return (nb);
 }
 
-int	word_length(char const *s, char c)
+static char	**ft_free(char **str)
 {
-	int	i;
-	int	len;
+	size_t	counter;
 
-	i = 0;
-	len = 0;
-	while (s[i] != c && s[i] != '\0')
+	counter = 0;
+	while (str[counter] != 0)
 	{
-		i++;
-		len++;
+		free (str[counter]);
+		counter++;
 	}
-	return (len);
-}
-
-char	**f(char const *s, char c, char **result, int words_count)
-{
-	int	i;
-	int	j;
-	int	w_len;
-
-	while (*s == c)
-		s++;
-	i = -1;
-	while (++i < words_count)
-	{
-		while (*s == c)
-			s++;
-		j = 0;
-		w_len = word_length(s, c);
-		result[i] = (char *)malloc(sizeof(char) * (w_len + 1));
-		if (!(result[i]))
-			return (NULL);
-		while (j < w_len)
-		{
-			result[i][j] = *s;
-			s++;
-			j++;
-		}
-		result[i][j] = '\0';
-	}
-	return (result);
+	free (str);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**result;
-	int		wcount;
+	char	**str;
+	size_t	len;
+	size_t	counter;
 
-	if (!s)
+	str = (char **)malloc(sizeof(char *) * (ft_wordnb(s, c) + 1));
+	if (!str || !s)
 		return (NULL);
-	wcount = word_count(s, c);
-	result = (char **)malloc(sizeof(char *) * (wcount + 1));
-	if (!(result))
-		return (NULL);
-	result = f(s, c, result, wcount);
-	result[wcount] = NULL;
-	return (result);
+	counter = 0;
+	while (*s)
+	{
+		while (*s == c && *s)
+			s++;
+		if (*s)
+		{
+			len = ft_strchr(s, c) - s;
+			if (ft_strchr(s, c) == 0)
+				len = ft_strlen(s);
+			str[counter++] = ft_substr(s, 0, len);
+			if (!str[counter - 1])
+				return (ft_free(str));
+			s += len;
+		}
+	}
+	str[counter] = NULL;
+	return (str);
 }
+/*int main()
+{
+	printf("%d\n", ft_wordnb("  HOLA  QUE TAL  ", ' '));
+	printf("%d\n", ft_split("  HOLA  QUE TAL  ", ' '));
+	return (0);
+}*/

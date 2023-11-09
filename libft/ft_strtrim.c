@@ -3,47 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 21:00:51 by shovsepy          #+#    #+#             */
-/*   Updated: 2021/06/30 17:29:51 by shovsepy         ###   ########.fr       */
+/*   Created: 2023/03/29 18:13:20 by msoriano          #+#    #+#             */
+/*   Updated: 2023/03/31 17:33:55 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	isinset(int c, const char *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	character;
-
-	character = (char)c;
-	while (*set)
-	{
-		if (*set++ == character)
-			return (1);
-	}
-	return (0);
-}
-
-char	*ft_strtrim(const char *str, const char *set)
-{
-	char	*new_str;
+	char	*str;
 	int		start;
 	int		end;
-	int		i;
 
-	start = 0;
-	end = ft_strlen(str);
-	while (str[start] && isinset(str[start], set))
-		start++;
-	while (end > start && isinset(str[end - 1], set))
-		end--;
-	new_str = malloc(end - start + 1);
-	if (!new_str)
+	if (!s1)
 		return (NULL);
-	i = 0;
-	while (start < end)
-		new_str[i++] = str[start++];
-	new_str[i] = '\0';
-	return (new_str);
+	if (!set)
+		return (ft_strdup(s1));
+	start = 0;
+	end = ft_strlen(s1) - 1;
+	while (s1[start] && ft_strrchr(set, s1[start]))
+		start ++;
+	while (s1[end] && ft_strrchr(set, s1[end]))
+		end --;
+	str = ft_substr(s1, start, (end - start + 1));
+	return (str);
 }
+/*int	main(void)
+{
+	char *s1 = "   hola  ";
+	char *set = " ";
+	char *trimmed = ft_strtrim(s1, set);
+	printf("'%s' sin espacios: '%s'\n", s1, trimmed);
+	free(trimmed);
+*/
