@@ -6,7 +6,7 @@
 /*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 20:06:39 by msoriano          #+#    #+#             */
-/*   Updated: 2023/11/09 21:10:06 by msoriano         ###   ########.fr       */
+/*   Updated: 2023/11/13 22:37:18 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	ft_check_args(int argc, char **argv)
 {
 	int		i;
-	long	tmp;
 	char	**args;
 
 	i = 0;
@@ -26,6 +25,15 @@ void	ft_check_args(int argc, char **argv)
 		i = 1;
 		args = argv;
 	}
+	ft_check_argsn(i, args);
+	if (argc == 2)
+		ft_free(args);
+}
+
+void	ft_check_argsn(int i, char **args)
+{
+	long	tmp;
+
 	while (args[i])
 	{
 		tmp = ft_atoi(args[i]);
@@ -46,6 +54,4 @@ void	ft_check_args(int argc, char **argv)
 		}
 		i++;
 	}
-	if (argc == 2)
-		ft_free(args);
 }

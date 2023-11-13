@@ -6,7 +6,7 @@
 /*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 20:06:56 by msoriano          #+#    #+#             */
-/*   Updated: 2023/11/09 22:15:53 by msoriano         ###   ########.fr       */
+/*   Updated: 2023/11/13 22:26:36 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	get_min(t_list **stack, int val)
 	}
 	return (min);
 }
-
+/*
 int	main(int argc, char **argv)
 {
 	t_list	**stack_a;
@@ -73,6 +73,33 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	sort_stack(stack_a, stack_b);
+	free_stack(stack_a);
+	free_stack(stack_b);
+	return (0);
+}*/
+
+int	main(int argc, char **argv)
+{
+	t_list	**stack_a;
+	t_list	**stack_b;
+
+	if (argc < 2)
+		return (-1);
+	ft_check_args(argc, argv);
+	stack_a = (t_list **)malloc(sizeof(t_list *));
+	stack_b = (t_list **)malloc(sizeof(t_list *));
+	*stack_a = NULL;
+	*stack_b = NULL;
+	initstack(stack_a, argc, argv);
+	if (is_sorted(stack_a))
+	{
+		printstack(stack_a);
+		free_stack(stack_a);
+		free_stack(stack_b);
+		return (0);
+	}
+	sort_stack(stack_a, stack_b);
+	printstack(stack_a);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);

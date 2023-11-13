@@ -1,12 +1,12 @@
-﻿/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 20:07:07 by msoriano          #+#    #+#             */
-/*   Updated: 2023/11/09 22:18:37 by msoriano         ###   ########.fr       */
+/*   Created: 2023/11/13 22:21:21 by msoriano          #+#    #+#             */
+/*   Updated: 2023/11/13 22:22:02 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ void	index_stack(t_list **stack)
 		head = get_next_min(stack);
 	}
 }
-void initStack(t_list** stack, int argc, char** argv)
+
+void	initstack(t_list **stack, int argc, char **argv)
 {
-	t_list * new;
-	char** args;
-	int i;
+	t_list	*new;
+	char	**args;
+	int		i;
 
 	i = 0;
 	if (argc == 2)
@@ -50,10 +51,25 @@ void initStack(t_list** stack, int argc, char** argv)
 		ft_free(args);
 }
 
-void sort_stack(t_list** stack_a, t_list** stack_b)
+void	sort_stack(t_list **stack_a, t_list **stack_b)
 {
 	if (ft_lstsize(*stack_a) <= 5)
 		simple_sort(stack_a, stack_b);
 	else
 		radix_sort(stack_a, stack_b);
+}
+
+void	free_stack(t_list **stack)
+{
+	t_list	*head;
+	t_list	*tmp;
+
+	head = *stack;
+	while (head)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
+	free(stack);
 }

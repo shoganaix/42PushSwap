@@ -6,7 +6,7 @@
 /*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 20:07:01 by msoriano          #+#    #+#             */
-/*   Updated: 2023/11/09 22:18:53 by msoriano         ###   ########.fr       */
+/*   Updated: 2023/11/13 22:20:46 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,15 @@ int	is_sorted(t_list **stack)
 	return (1);
 }
 
-void	free_stack(t_list **stack)
+void	printstack(t_list **stack)
 {
-	t_list	*head;
-	t_list	*tmp;
+	t_list	*current;
 
-	head = *stack;
-	while (head)
+	current = *stack;
+	while (current != NULL)
 	{
-		tmp = head;
-		head = head->next;
-		free(tmp);
+		printf("%d ", current->value);
+		current = current->next;
 	}
-	free(stack);
+	printf("\n");
 }
