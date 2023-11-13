@@ -90,6 +90,7 @@ int	main(int argc, char **argv)
 	stack_b = (t_list **)malloc(sizeof(t_list *));
 	*stack_a = NULL;
 	*stack_b = NULL;
+	printstack(stack_a);
 	initstack(stack_a, argc, argv);
 	if (is_sorted(stack_a))
 	{
