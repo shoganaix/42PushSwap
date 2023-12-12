@@ -6,7 +6,7 @@
 /*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 20:06:44 by msoriano          #+#    #+#             */
-/*   Updated: 2023/12/12 13:09:19 by msoriano         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:19:37 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int		get_min(t_list **stack, int val);
 t_list	*get_next_min(t_list **stack);
 void	printstack(t_list **stack);
 void	ft_check_args(int argc, char **argv);
+void	savespacer(t_list **stack_a);
 
 //Sorting 6 or less
 void	sort_5(t_list **stack_a, t_list **stack_b);

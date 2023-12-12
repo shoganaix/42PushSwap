@@ -6,7 +6,7 @@
 /*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 22:21:21 by msoriano          #+#    #+#             */
-/*   Updated: 2023/11/13 22:22:02 by msoriano         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:20:38 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,11 @@ void	free_stack(t_list **stack)
 		free(tmp);
 	}
 	free(stack);
+}
+
+void	savespacer(t_list **stack_a)
+{
+	ra(stack_a);
+	sa(stack_a);
+	rra(stack_a);
 }

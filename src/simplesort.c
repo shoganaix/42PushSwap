@@ -6,7 +6,7 @@
 /*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 20:04:34 by msoriano          #+#    #+#             */
-/*   Updated: 2023/11/09 22:15:11 by msoriano         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:19:46 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ static void	swap_if_needed(t_list **stack_a, int min, int next_min)
 	head = *stack_a;
 	if (head->index == min && head->next->index != next_min)
 	{
-		ra(stack_a);
-		sa(stack_a);
-		rra(stack_a);
+		savespacer(stack_a);
 	}
 	else if (head->index == next_min)
 	{
