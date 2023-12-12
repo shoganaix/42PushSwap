@@ -6,7 +6,7 @@
 /*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:15:29 by msoriano          #+#    #+#             */
-/*   Updated: 2023/12/12 13:50:59 by msoriano         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:10:45 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
 
-int				ft_atoi(const char *str);
+long			ft_atoi(const char *str);
 
 void			*ft_memmove(void *dst, const void *src, size_t len);
 
