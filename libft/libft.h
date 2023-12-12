@@ -6,7 +6,7 @@
 /*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:15:29 by msoriano          #+#    #+#             */
-/*   Updated: 2023/12/12 13:09:29 by msoriano         ###   ########.fr       */
+/*   Updated: 2023/12/12 13:50:59 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdio.h>
-
-# define BUFF_SIZE	(1)
-# define MAX_FD (1025)
 
 int				ft_isalnum(int c);
 
@@ -90,6 +87,6 @@ void			ft_putendl_fd(char *s, int fd);
 
 void			ft_putnbr_fd(int n, int fd);
 
-int	ft_strcmp	(const char *s1, const char *s2);
+int				ft_strcmp(const char *s1, const char *s2);
 
 #endif

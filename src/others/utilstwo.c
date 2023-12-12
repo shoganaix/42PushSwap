@@ -6,7 +6,7 @@
 /*   By: msoriano <msoriano@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 21:40:43 by msoriano          #+#    #+#             */
-/*   Updated: 2023/12/12 12:22:53 by msoriano         ###   ########.fr       */
+/*   Updated: 2023/12/12 13:50:04 by msoriano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	make_top(t_list **stack, int distance)
 			rra(stack);
 	}
 }
+
 void	ft_check_args(int argc, char **argv)
 {
 	int		i;
