@@ -73,6 +73,7 @@ t_list	*get_next_min(t_list **stack);
 void	printstack(t_list **stack);
 void	ft_check_args(int argc, char **argv);
 void	savespacer(t_list **stack_a);
+void	savespacer2(int argc, char **args);
 
 //Sorting 6 or less
 void	sort_5(t_list **stack_a, t_list **stack_b);
