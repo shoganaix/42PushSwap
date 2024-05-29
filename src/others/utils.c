@@ -66,6 +66,13 @@ int	is_sorted(t_list **stack)
 	return (1);
 }
 
+void	savespacer2(int argc, char **args)
+{
+	if (argc == 2)
+		ft_free(args);
+	ft_error("Error");
+}
+/*
 void	printstack(t_list **stack)
 {
 	t_list	*current;
@@ -78,3 +85,4 @@ void	printstack(t_list **stack)
 	}
 	printf("\n");
 }
+*/
