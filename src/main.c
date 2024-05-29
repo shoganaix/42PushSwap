@@ -52,7 +52,7 @@ int	get_min(t_list **stack, int val)
 	}
 	return (min);
 }
-/*
+
 int	main(int argc, char **argv)
 {
 	t_list	**stack_a;
@@ -76,8 +76,8 @@ int	main(int argc, char **argv)
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
-}*/
-
+}
+/*
 int	main(int argc, char **argv)
 {
 	t_list	**stack_a;
@@ -104,3 +104,4 @@ int	main(int argc, char **argv)
 	free_stack(stack_b);
 	return (0);
 }
+*/
