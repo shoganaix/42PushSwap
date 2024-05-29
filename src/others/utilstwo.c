@@ -87,11 +87,11 @@ void	ft_check_args(int argc, char **argv)
 	{
 		tmp = ft_atoi(args[i]);
 		if (!ft_isnum(args[i]))
-			ft_error("Error");
+			savespacer2(argc, args);
 		if (ft_contains(tmp, args, i))
-			ft_error("Error");
+			savespacer2(argc, args);
 		if (tmp < -2147483648 || tmp > 2147483647)
-			ft_error("Error");
+			savespacer2(argc, args);
 		i++;
 	}
 	if (argc == 2)
