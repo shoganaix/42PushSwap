@@ -5,8 +5,9 @@
 # Index
 * [What is Push Swap?](#push-swap)
 * [Radix Algorythm](#radix)
-* [Final Grade](#grade)
 * [Usage](#usage)
+* [Final Grade](#grade)
+
 
 ## Push Swap
 Push Swap is an algorithm project at school 42.
