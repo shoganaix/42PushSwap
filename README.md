@@ -39,5 +39,5 @@ To use the push_swap program, compile it with the `make` command and then run it
 </p>
 
 <p align="center">
-<sub>NO BONUSES</sub>
+<sub>NO BONUS</sub>
  </p>
